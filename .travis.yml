@@ -1,0 +1,16 @@
+sudo: required
+services:
+  - docker
+
+before_install: 
+  - docker build -t mykitazolov/react-test -f ./client/Dockerfile.dev ./client 
+
+script: 
+  - docker run -e CI=true mykitazolov/react-test npm test
+  # - docker run mykitazolov/react-test npm test -- --coverage
+
+after_success:
+  - docker build -t mykitazolov/multi-client ./client
+  - docker build -t mykitazolov/multi-nginx ./nginx
+  - docker build -t mykitazolov/multi-server ./server
+  - docker build -t mykitazolov/multi-worker ./worker 
