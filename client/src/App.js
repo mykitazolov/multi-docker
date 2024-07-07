@@ -11,7 +11,7 @@ function App() {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <Link to="/">Home</Link>
-          <Link to="/otherpage">Otherpage</Link>
+          <Link to="/otherpage">To Otherpage</Link>
           <div>
             <Route exact path="/" component={Fib} />
             <Route path="/otherpage" component={OtherPage} />
@@ -22,7 +22,7 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn React
+            Learn React Here
           </a>
         </header>
       </div>
